@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Google Tech Stack Research Paper</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <p><h1>Research Paper on Google's Tech Stack</h1></p>
+    <p><h2>By Jacob Zimmer</h2></p>
+    
+    <p>For this research paper, the company whose tech stack I had researched was Google, and I have found information on the 
+    languages they use, their tools and software they use, how they deal with version control, as well as the number of search 
+    requests they handle every year.</p>
+
+<p>The majority of the tools and software used by Google are not open source, and therefore cannot be researched. However, there are 
+some that are publicly available, such as the Google File System (GFS), BigTable, FUSE and IDE. The GFS uses a single master to 
+send multiple chunk servers to multiple clients, as illustrated in the figure below.</p>
+
+<p><img src = "GFS.png"/></p>
+
+<p>The authors of the paper, Ghemawat, Gobioff, & Leung, explains how the system works as such:</p>
+
+<p>“First, using the fixed chunksize, the client translates the file name and byte offset specified by the application into a 
+chunkindex within the file. Then, it sends the master a request containing the file name and chunk index. The master replies with 
+the corresponding chunk handle and locations of the replicas. The client caches this information using the file name and chunkindex
+ as the key. The client then sends a request to one of the replicas, most likely the closest one. The request specifies the chunk 
+ handle and a byte range within that chunk. Further reads of the same chunkrequire no more client-master interaction until the 
+ cached information expires or the file is reopened.”</p>
+
+
+<p>The chunks sent are 64 MB in size, and stored as a plain Linux file on a chunkserver, only being extended as needed. The larger 
+chunk sizes are useful because it means the amount of times the client needs to contact the master is just once, as well as 
+reducing the size of the metadata stored on the master. The metadata stored on the master includes file and chunk namespaces, 
+mapping from files to chunks, and locations of each chunk’s replicas.</p>
+
+<p>Google BigTable is a distributed, column-oriented data store that is used as the database for many of Google’s features, such as 
+Google’s App engine datastore, Google Personalized Search, Google Analytics, and Google Earth.  BigTable was designed with apps 
+requiring massive scalability in mind, with its first iteration being made with the intent of being used with petabytes of data.</p<
+
+<p>Google uses a software called Filesystem in Userspace, or FUSE, which is a software interface that allows non-privileged  users to 
+create their own file systems without editing the kernel code. Below is a diagram of how it works.</p>
+
+<p><img src = "FUSE.png"/></p>
+
+<p>Google also uses Integrated Development Environments, or IDE. According to wikipedia, IDE is a software application that is used to 
+edit source code, build automation tools, and do debugging. Designed to maximize the productivity of programmers, IDEs have a single 
+program where all development is done. Said program is usually the provider of many features, such as authoring and modifying, 
+compiling, deploying, and debugging software. IDEs are used to make piecing together development utilities easier. This makes it 
+much simpler when editing code, as it can be parsed while being edited so that the feedback is instant when errors are made.</p>
+
+<p>Perforce is the repository of choice for Google, who owns the busiest and one of the largest single  repo servers. With more than 
+twelve thousand users and over a million changes over the decades, Perforce is very similar to Github in how it is used, sending 
+local files to Perforce repositories when edited. The following diagram shows how Perforce works.</p>
+
+<p><img src = "perforce_diagram.jpg"/></p>
+
+<p>According to my research, the main languages used in programming at Google are C++ and Java, as well as Python, according to Google
+	 Goggles’ lead tech engineer David Petrou. C++ is primarily used in all of Google’s open source projects, due to its power as a 
+	 programming language, while Python and Java are used for less intense projects (such as application engines and parts of YouTube).</p>
+
+<p>Google, being the most popular search engine and one of, if not the most, powerful internet based companies in the world, deals with 
+a massive amount of requests every second. On average, over forty thousand search requests are sent every second, which adds up to 
+roughly 3.5 billion requests daily, and 1.2 trillion requests annually. Google uses an algorithmic  program, Pagerank, to rank the 
+results of each search. Below is an example of how Pagerank works, from wikipedia’s page on the topic:</p>
+
+<p><img src = "pagerank.png"/></p>
+
+<p>Mathematical PageRanks for a simple network, expressed as percentages. (Google uses a logarithmic scale.) Page C has a higher 
+	PageRank than Page E, even though there are fewer links to C; the one link to C comes from an important page and hence is of 
+	high value. If web surfers who start on a random page have an 85% likelihood of choosing a random link from the page they are 
+	currently visiting, and a 15% likelihood of jumping to a page chosen at random from the entire web, they will reach Page E 8.1% 
+	of the time. (The 15% likelihood of jumping to an arbitrary page corresponds to a damping factor of 85%.) Without damping, 
+	all web surfers would eventually end up on Pages A, B, or C, and all other pages would have PageRank zero. In the presence of 
+	damping, Page A effectively links to all pages in the web, even though it has no outgoing links of its own.</p>
+
+
+	<p>By using all of the previously stated tools, programs, languages, and systems in their tech stack, Google has become a 
+		powerful giant in the newly emerged business that is the internet, and has become a household name that is often considered 
+		synonymous with the internet, specifically when it comes to surfing. Since Google is ever growing, the list of what they 
+		use will also grow, and the older tools will eventually become open source, allowing for other businesses and web designers 
+		to use their tools to improve their own work.</p>
+
+<ul>Sources:</ul>
+
+<ul><a href = "http://www.infoq.com/presentations/Development-at-Google">http://www.infoq.com/presentations/Development-at-Google</a href></ul>
+
+<ul><a href = "https://www.quora.com/Which-programming-languages-does-Google-use-internally/answer/David-Petrou">https://www.quora.com/Which-programming-languages-does-Google-use-internally/answer/David-Petrou</a href></ul>
+
+<ul><a href = "http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf">http://static.googleusercontent.com/media/research.google.com/en//archive/gfs-sosp2003.pdf</a href></ul> 
+
+<ul><a href = "https://google.github.io/styleguide/cppguide.html">https://google.github.io/styleguide/cppguide.html</a href></ul> 
+
+<ul><a href = "http://searchdatamanagement.techtarget.com/definition/Google-BigTable">http://searchdatamanagement.techtarget.com/definition/Google-BigTable</a href></ul> 
+
+<ul><a href = "https://en.wikipedia.org/wiki/Filesystem_in_Userspace">https://en.wikipedia.org/wiki/Filesystem_in_Userspace</a href></ul> 
+
+<ul><a href ="http://www.internetlivestats.com/google-search-statistics/">http://www.internetlivestats.com/google-search-statistics/</a href> </ul>
+
+<ul><a href ="https://www.perforce.com/blog/110607/how-do-they-do-it-googles-one-server-trick">https://www.perforce.com/blog/110607/how-do-they-do-it-googles-one-server-trick</a href> </ul>
+
+<ul><a href ="https://www.perforce.com/perforce/doc.current/manuals/p4v-gs/01_p4v-gs.html">https://www.perforce.com/perforce/doc.current/manuals/p4v-gs/01_p4v-gs.html</a href> </ul>
+
+<ul><a href ="https://en.wikipedia.org/wiki/PageRank#Algorithm">https://en.wikipedia.org/wiki/PageRank#Algorithm</a href> </ul>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

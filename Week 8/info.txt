@@ -1,0 +1,3 @@
+Link to heroku app with research paper on it:
+
+https://polar-wildwood-19607.herokuapp.com/
