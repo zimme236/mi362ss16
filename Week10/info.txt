@@ -1,0 +1,3 @@
+Link to the blog for week10
+
+https://week10work.herokuapp.com
