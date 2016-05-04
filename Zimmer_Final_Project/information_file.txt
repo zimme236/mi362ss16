@@ -1,0 +1,12 @@
+Final project link:
+
+zimme236.mooo.com 
+
+Point distribution:
+
+300 mandatory requirements.
+300 - 4 html pages. The homepage, the three blog entries.
+200 - custom css page made by me.
+100 - heroku add on used. Blazemeter
+50 - two custom photographs from my time spent studying in Japan
+50 - 3rd party font icon. Used fontawesome to make a no camera icon for blog 2.
